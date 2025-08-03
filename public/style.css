@@ -1,0 +1,14 @@
+#slot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.slot-cell {
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}

@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     let balance = 0;
+    let betAmount = 0;
     const depositInput = document.getElementById('deposit');
     const linesInput = document.getElementById('lines');
-    const betInput = document.getElementById('bet');
     const spinBtn = document.getElementById('spinBtn');
     const balanceDiv = document.getElementById('balance');
     const messageDiv = document.getElementById('message');
     const grid = document.getElementById('slot-grid');
+    const coinBtn = document.getElementById('coin-btn');
+    const betDisplay = document.getElementById('bet-display');
 
     const updateBalance = () => balanceDiv.textContent = `Balance: $${balance}`;
+    const updateBetDisplay = () => betDisplay.textContent = `Bet: $${betAmount}`;
 
     depositInput.addEventListener('change', () => {
         const val = parseFloat(depositInput.value);
@@ -18,9 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    coinBtn.addEventListener('click', () => {
+        betAmount += 1;
+        updateBetDisplay();
+    });
+
     spinBtn.addEventListener('click', async () => {
         const lines = parseInt(linesInput.value);
-        const bet = parseFloat(betInput.value);
+        const bet = betAmount;
         messageDiv.textContent = '';
 
         if (!bet || bet <= 0 || bet * lines > balance) {
@@ -51,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
         balance += data.winnings;
         updateBalance();
         messageDiv.textContent = `You won $${data.winnings}!`;
+
+        betAmount = 0;
+        updateBetDisplay();
 
         if (balance <= 0) {
             messageDiv.textContent += ' Game over!';

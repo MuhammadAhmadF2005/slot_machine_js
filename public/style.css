@@ -12,3 +12,28 @@
     padding: 20px;
     border-radius: 8px;
 }
+
+#coin-slot-area {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #444;
+}
+
+#bet-display {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffc107;
+}
+
+#coin-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 3px solid #d4a017;
+    background-color: #ffc107;
+    color: #000;
+    margin-right: 10px;
+}
